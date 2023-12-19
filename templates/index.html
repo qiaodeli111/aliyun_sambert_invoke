@@ -58,6 +58,22 @@
             color: #ffffff;
             font-weight: bold;
         }
+        input[type="text"], textarea {
+            width: 80%; /* 调整宽度 */
+            padding: 10px; /* 内边距 */
+            margin: 10px 0; /* 外边距 */
+            border: 1px solid #ddd; /* 边框样式 */
+            border-radius: 4px; /* 边框圆角 */
+            box-sizing: border-box; /* 盒模型 */
+        }
+
+        textarea {
+            height: 150px; /* 调整文本区域的高度 */
+        }
+
+        #text {
+            height: 200px; /* 特别为 id="text" 的文本区域设置更大的高度 */
+        }
     </style>
 </head>
 <body>
@@ -74,7 +90,7 @@
             API Key: <input type="text" id="api_key" name="api_key" value="{{ api_key }}" required><br>
             Model Name: <input type="text" id="model_name" name="model_name" value="{{ model_name }}" required><br>
 
-            <label for="text">要转换的文本:</label>
+            要转换的文本:
             <textarea id="text" name="text" rows="4" cols="50" required></textarea><br>
             <input type="submit" value="生成语音！">
         </form>
