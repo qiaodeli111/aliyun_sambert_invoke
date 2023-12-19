@@ -2,6 +2,6 @@ version: '3'
 
 services:
   aliyun-sambert-invoke:
-    image: qiaodeli111/aliyun-sambert-invoke:v1.0.1
+    image: qiaodeli111/aliyun-sambert-invoke:v1.1.0
     ports:
       - "20000:20000"
