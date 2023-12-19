@@ -1,0 +1,5 @@
+# 忽略所有目录下的 info.md 文件
+**/info.md
+
+# 忽略 static 目录及其下的所有文件
+**/static/
