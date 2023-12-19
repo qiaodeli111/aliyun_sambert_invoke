@@ -15,22 +15,17 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Get latest tag
-      id: latest-tag
-      uses: WyriHaximus/github-action-get-previous-tag@v1
-
     - name: Bump version and push tag
       id: tag_version
-      uses: mathieudutour/github-tag-action@v5.6
+      uses: mathieudutour/github-tag-action@v6.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         default_bump: false
-        with_v: false
 
     - name: Check if tag version changed
       id: check-version
       run: |
-        if [ "${{ steps.latest-tag.outputs.tag }}" == "${{ steps.tag_version.outputs.new_tag }}" ]; then
+        if [ "" == "${{ steps.tag_version.outputs.new_tag }}" ]; then
           echo "Version did not change"
           echo "SKIP_BUILD=true" >> $GITHUB_ENV
         fi
