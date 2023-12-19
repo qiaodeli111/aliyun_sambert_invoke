@@ -113,12 +113,17 @@
                 .then(response => response.text())
                 .then(data => {
                     const audioPlayer = document.getElementById('audioPlayer');
-                    audioPlayer.src = data;
+                    // 为 URL 添加时间戳参数以避免缓存
+                    const timestamp = new Date().getTime();
+                    audioPlayer.src = `${data}?t=${timestamp}`;
                     audioPlayer.style.display = 'block';
+                    audioPlayer.load(); // 重新加载音频元素
+                    audioPlayer.play(); // 自动播放新加载的音频
                 })
                 .catch(error => console.error('Error:', error));
             };
         </script>
+
     </div>
 </body>
 </html>
